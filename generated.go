@@ -11,10 +11,9 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
+	"github.com/danishsatkut/gqlgen-todos/models"
 	"github.com/vektah/gqlparser"
 	"github.com/vektah/gqlparser/ast"
-
-	"github.com/danishsatkut/gqlgen-todos/models"
 )
 
 // region    ************************** generated!.gotpl **************************
@@ -287,7 +286,7 @@ func (ec *executionContext) _Query_todos(ctx context.Context, field graphql.Coll
 	res := resTmp.([]models.Todo)
 	rctx.Result = res
 	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalNTodo2ᚕgithubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚐTodo(ctx, field.Selections, res)
+	return ec.marshalNTodo2ᚕgithubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚋmodelsᚐTodo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) graphql.Marshaler {
@@ -450,7 +449,7 @@ func (ec *executionContext) _Todo_user(ctx context.Context, field graphql.Collec
 	res := resTmp.(*models.User)
 	rctx.Result = res
 	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalNUser2ᚖgithubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚐUser(ctx, field.Selections, res)
+	return ec.marshalNUser2ᚖgithubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚋmodelsᚐUser(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _User_id(ctx context.Context, field graphql.CollectedField, obj *models.User) graphql.Marshaler {
@@ -1742,11 +1741,11 @@ func (ec *executionContext) marshalNString2string(ctx context.Context, sel ast.S
 	return graphql.MarshalString(v)
 }
 
-func (ec *executionContext) marshalNTodo2githubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚐTodo(ctx context.Context, sel ast.SelectionSet, v models.Todo) graphql.Marshaler {
+func (ec *executionContext) marshalNTodo2githubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚋmodelsᚐTodo(ctx context.Context, sel ast.SelectionSet, v models.Todo) graphql.Marshaler {
 	return ec._Todo(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNTodo2ᚕgithubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚐTodo(ctx context.Context, sel ast.SelectionSet, v []models.Todo) graphql.Marshaler {
+func (ec *executionContext) marshalNTodo2ᚕgithubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚋmodelsᚐTodo(ctx context.Context, sel ast.SelectionSet, v []models.Todo) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -1770,7 +1769,7 @@ func (ec *executionContext) marshalNTodo2ᚕgithubᚗcomᚋdanishsatkutᚋgqlgen
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNTodo2githubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚐTodo(ctx, sel, v[i])
+			ret[i] = ec.marshalNTodo2githubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚋmodelsᚐTodo(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -1783,11 +1782,11 @@ func (ec *executionContext) marshalNTodo2ᚕgithubᚗcomᚋdanishsatkutᚋgqlgen
 	return ret
 }
 
-func (ec *executionContext) marshalNUser2githubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚐUser(ctx context.Context, sel ast.SelectionSet, v models.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2githubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚋmodelsᚐUser(ctx context.Context, sel ast.SelectionSet, v models.User) graphql.Marshaler {
 	return ec._User(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚐUser(ctx context.Context, sel ast.SelectionSet, v *models.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋdanishsatkutᚋgqlgenᚑtodosᚋmodelsᚐUser(ctx context.Context, sel ast.SelectionSet, v *models.User) graphql.Marshaler {
 	if v == nil {
 		if !ec.HasError(graphql.GetResolverContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
