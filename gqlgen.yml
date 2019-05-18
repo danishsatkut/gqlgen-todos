@@ -13,5 +13,5 @@ models:
 model:
   filename: models_gen.go
 resolver:
-  filename: resolver.go
+  filename: resolvers/resolver.go
   type: Resolver
