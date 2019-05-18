@@ -9,9 +9,12 @@ exec:
   filename: generated.go
 models:
   Todo:
-    model: github.com/danishsatkut/gqlgen-todos.Todo
+    model: github.com/danishsatkut/models.Todo
+  User:
+    model: github.com/danishsatkut/models.User
 model:
-  filename: models_gen.go
+  filename: models/generated.go
+  package: models
 resolver:
   filename: resolvers/resolver.go
   type: Resolver

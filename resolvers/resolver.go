@@ -2,11 +2,12 @@ package resolvers
 
 import (
 	"github.com/danishsatkut/gqlgen-todos"
+	"github.com/danishsatkut/gqlgen-todos/models"
 	"github.com/danishsatkut/gqlgen-todos/resolvers/notes"
 )
 
 type Resolver struct{
-	todos []gqlgen_todos.Todo
+	todos []models.Todo
 }
 
 func (r *Resolver) Todo() gqlgen_todos.TodoResolver {
@@ -19,7 +20,7 @@ func (r *Resolver) Query() gqlgen_todos.QueryResolver {
 	return &queryResolver{r}
 }
 
-var todos = []gqlgen_todos.Todo{
+var todos = []models.Todo{
 	{ID: "1", Text: "First", Done: false},
 	{ID: "2", Text: "Second", Done: false},
 	{ID: "3", Text: "Third", Done: false},

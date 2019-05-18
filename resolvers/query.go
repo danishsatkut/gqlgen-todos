@@ -3,11 +3,11 @@ package resolvers
 import (
 	"context"
 
-	gqlgen_todos "github.com/danishsatkut/gqlgen-todos"
+	"github.com/danishsatkut/gqlgen-todos/models"
 )
 
 type queryResolver struct{ *Resolver }
 
-func (r *queryResolver) Todos(ctx context.Context) ([]gqlgen_todos.Todo, error) {
+func (r *queryResolver) Todos(ctx context.Context) ([]models.Todo, error) {
 	return r.todos, nil
 }

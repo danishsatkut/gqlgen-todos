@@ -3,11 +3,11 @@ package notes
 import (
 	"context"
 
-	gqlgen_todos "github.com/danishsatkut/gqlgen-todos"
+	"github.com/danishsatkut/gqlgen-todos/models"
 )
 
 type TodoResolver struct{}
 
-func (r *TodoResolver) User(ctx context.Context, obj *gqlgen_todos.Todo) (*gqlgen_todos.User, error) {
-	return &gqlgen_todos.User{ID: obj.UserID, Name: "user " + obj.UserID}, nil
+func (r *TodoResolver) User(ctx context.Context, obj *models.Todo) (*models.User, error) {
+	return &models.User{ID: obj.UserID, Name: "user " + obj.UserID}, nil
 }
