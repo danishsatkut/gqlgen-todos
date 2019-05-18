@@ -21,7 +21,7 @@ func (r *Resolver) Query() gqlgen_todos.QueryResolver {
 }
 
 var todos = []models.Todo{
-	{ID: "1", Text: "First", Done: false},
-	{ID: "2", Text: "Second", Done: false},
-	{ID: "3", Text: "Third", Done: false},
+	{ID: "1", Text: "First", Done: false, UserID: "1"},
+	{ID: "2", Text: "Second", Done: false, UserID: "2"},
+	{ID: "3", Text: "Third", Done: false, UserID: "1"},
 }
