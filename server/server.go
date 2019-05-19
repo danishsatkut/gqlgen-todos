@@ -20,9 +20,7 @@ func main() {
 	}
 
 	config := gqlgen_todos.Config{
-		Resolvers: &resolvers.Resolver{
-			//	Service wide config options
-		},
+		Resolvers: resolvers.NewRootResolver(gqlgen_todos.NewDataStore()),
 	}
 
 	http.Handle("/", handler.GraphQL(gqlgen_todos.NewExecutableSchema(config)))
