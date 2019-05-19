@@ -12,5 +12,5 @@ type queryResolver struct{
 }
 
 func (r *queryResolver) Todos(ctx context.Context) ([]*models.Todo, error) {
-	return r.store.GetTodos(), nil
+	return r.store.GetTodoList(), nil
 }

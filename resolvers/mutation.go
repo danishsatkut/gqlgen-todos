@@ -11,6 +11,17 @@ type mutationResolver struct{
 	store *gqlgen_todos.DataStore
 }
 
+func (r *mutationResolver) CompleteTodo(ctx context.Context, id string) (*models.Todo, error) {
+	todo, err := r.store.FindTodo(id)
+	if err != nil {
+		return nil, err
+	}
+
+	todo.Done = true
+
+	return r.store.UpdateTodo(todo)
+}
+
 func (r *mutationResolver) CreateUser(ctx context.Context, name string) (*models.User, error) {
 	return r.store.CreateUser(name), nil
 }

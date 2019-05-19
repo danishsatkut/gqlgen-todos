@@ -17,4 +17,6 @@ type Query {
 type Mutation {
   createTodo(text: String!, user: String!): Todo!
   createUser(name: String!): User!
+
+  completeTodo(id: ID!): Todo!
 }
