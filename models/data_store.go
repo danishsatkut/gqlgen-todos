@@ -1,33 +1,31 @@
-package gqlgen_todos
+package models
 
 import (
 	"errors"
 	"fmt"
 
 	"github.com/google/uuid"
-
-	"github.com/danishsatkut/gqlgen-todos/models"
 )
 
 type DataStore struct {
-	todos map[string]*models.Todo
-	users map[string]*models.User
+	todos map[string]*Todo
+	users map[string]*User
 }
 
 func NewDataStore() *DataStore {
-	todos := make(map[string]*models.Todo)
-	users := make(map[string]*models.User)
+	todos := make(map[string]*Todo)
+	users := make(map[string]*User)
 
 	return &DataStore{todos, users}
 }
 
-func (s *DataStore) CreateTodo(text string, userId string) (*models.Todo, error) {
+func (s *DataStore) CreateTodo(text string, userId string) (*Todo, error) {
 	user, err := s.FindUser(userId)
 	if err != nil {
 		return nil, err
 	}
 
-	todo := &models.Todo{
+	todo := &Todo{
 		ID: uuid.New().String(),
 		Text: text,
 		UserID: user.ID,
@@ -39,8 +37,8 @@ func (s *DataStore) CreateTodo(text string, userId string) (*models.Todo, error)
 	return todo, nil
 }
 
-func (s *DataStore) CreateUser(name string) *models.User {
-	user := &models.User{
+func (s *DataStore) CreateUser(name string) *User {
+	user := &User{
 		ID: uuid.New().String(),
 		Name: name,
 	}
@@ -50,7 +48,7 @@ func (s *DataStore) CreateUser(name string) *models.User {
 	return user
 }
 
-func (s *DataStore) FindUser(id string) (*models.User, error) {
+func (s *DataStore) FindUser(id string) (*User, error) {
 	user, ok := s.users[id]
 	if !ok {
 		return nil, errors.New("user not found")
@@ -59,8 +57,8 @@ func (s *DataStore) FindUser(id string) (*models.User, error) {
 	return user, nil
 }
 
-func (s *DataStore) GetTodoList() []*models.Todo {
-	todoList := make([]*models.Todo, 0, len(s.todos))
+func (s *DataStore) GetTodoList() []*Todo {
+	todoList := make([]*Todo, 0, len(s.todos))
 
 	for _, todo := range s.todos {
 		todoList = append(todoList, todo)
@@ -69,7 +67,7 @@ func (s *DataStore) GetTodoList() []*models.Todo {
 	return todoList
 }
 
-func (s *DataStore) FindTodo(id string) (*models.Todo, error) {
+func (s *DataStore) FindTodo(id string) (*Todo, error) {
 	todo, ok := s.todos[id]
 	if !ok {
 		return nil, errors.New("todo not found")
@@ -78,7 +76,7 @@ func (s *DataStore) FindTodo(id string) (*models.Todo, error) {
 	return todo, nil
 }
 
-func (s *DataStore) UpdateTodo(todo *models.Todo) (*models.Todo, error) {
+func (s *DataStore) UpdateTodo(todo *Todo) (*Todo, error) {
 	if s.todos[todo.ID] == nil {
 		return nil, fmt.Errorf("todo does not exist with id: %v", todo.ID)
 	}

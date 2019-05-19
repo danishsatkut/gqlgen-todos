@@ -3,12 +3,11 @@ package resolvers
 import (
 	"context"
 
-	"github.com/danishsatkut/gqlgen-todos"
 	"github.com/danishsatkut/gqlgen-todos/models"
 )
 
 type mutationResolver struct{
-	store *gqlgen_todos.DataStore
+	store *models.DataStore
 }
 
 func (r *mutationResolver) CompleteTodo(ctx context.Context, id string) (*models.Todo, error) {

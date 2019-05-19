@@ -8,6 +8,7 @@ import (
 	"github.com/99designs/gqlgen/handler"
 
 	"github.com/danishsatkut/gqlgen-todos"
+	"github.com/danishsatkut/gqlgen-todos/models"
 	"github.com/danishsatkut/gqlgen-todos/resolvers"
 )
 
@@ -20,7 +21,7 @@ func main() {
 	}
 
 	config := gqlgen_todos.Config{
-		Resolvers: resolvers.NewRootResolver(gqlgen_todos.NewDataStore()),
+		Resolvers: resolvers.NewRootResolver(models.NewDataStore()),
 	}
 
 	http.Handle("/", handler.GraphQL(gqlgen_todos.NewExecutableSchema(config)))

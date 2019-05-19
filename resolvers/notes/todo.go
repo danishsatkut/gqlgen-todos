@@ -3,15 +3,14 @@ package notes
 import (
 	"context"
 
-	gqlgen_todos "github.com/danishsatkut/gqlgen-todos"
 	"github.com/danishsatkut/gqlgen-todos/models"
 )
 
 type TodoResolver struct{
-	store *gqlgen_todos.DataStore
+	store *models.DataStore
 }
 
-func NewTodoResolver(store *gqlgen_todos.DataStore) *TodoResolver {
+func NewTodoResolver(store *models.DataStore) *TodoResolver {
 	return &TodoResolver{store: store}
 }
 
