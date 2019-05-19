@@ -10,7 +10,7 @@ type Resolver struct{
 }
 
 func (r *Resolver) Todo() gqlgen_todos.TodoResolver {
-	return &notes.TodoResolver{}
+	return notes.NewTodoResolver(r.store)
 }
 
 func (r *Resolver) Query() gqlgen_todos.QueryResolver {
