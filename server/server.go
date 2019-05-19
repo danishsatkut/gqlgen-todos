@@ -19,7 +19,13 @@ func main() {
 		port = defaultPort
 	}
 
-	http.Handle("/", handler.GraphQL(gqlgen_todos.NewExecutableSchema(gqlgen_todos.Config{Resolvers: &resolvers.Resolver{}})))
+	config := gqlgen_todos.Config{
+		Resolvers: &resolvers.Resolver{
+			//	Service wide config options
+		},
+	}
+
+	http.Handle("/", handler.GraphQL(gqlgen_todos.NewExecutableSchema(config)))
 	http.Handle("/playground", handler.Playground("GraphQL playground", "/"))
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
