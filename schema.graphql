@@ -1,7 +1,7 @@
 type Todo {
   id: ID!
   text: String!
-  done: Boolean!
+  completed: Boolean!
   user: User!
 }
 
