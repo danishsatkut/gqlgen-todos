@@ -7,14 +7,18 @@ schema:
 - schema.graphql
 exec:
   filename: generated.go
+
+# Define root resolver
+resolver:
+  filename: resolvers/resolver.go
+  type: Resolver
+
+model:
+  filename: models/generated.go
+  package: models
+
 models:
   Todo:
     model: github.com/danishsatkut/gqlgen-todos/models.Todo
   User:
     model: github.com/danishsatkut/gqlgen-todos/models.User
-model:
-  filename: models/generated.go
-  package: models
-resolver:
-  filename: resolvers/resolver.go
-  type: Resolver

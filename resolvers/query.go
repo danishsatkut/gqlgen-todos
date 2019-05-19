@@ -8,6 +8,6 @@ import (
 
 type queryResolver struct{ *Resolver }
 
-func (r *queryResolver) Todos(ctx context.Context) ([]models.Todo, error) {
+func (r *queryResolver) Todos(ctx context.Context) ([]*models.Todo, error) {
 	return r.todos, nil
 }
