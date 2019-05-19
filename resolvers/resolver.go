@@ -17,6 +17,10 @@ func (r *Resolver) Query() gqlgen_todos.QueryResolver {
 	return &queryResolver{store: r.store}
 }
 
+func (r *Resolver) Mutation() gqlgen_todos.MutationResolver {
+	return &mutationResolver{store: r.store}
+}
+
 func NewRootResolver(store *gqlgen_todos.DataStore) *Resolver {
 	return &Resolver{store}
 }

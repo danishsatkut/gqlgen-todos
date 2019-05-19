@@ -13,3 +13,7 @@ type User {
 type Query {
   todos: [Todo!]!
 }
+
+type Mutation {
+  createTodo(text: String!, user: String!): Todo!
+}
